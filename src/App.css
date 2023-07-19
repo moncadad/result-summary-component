@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* PRIAMRY */
+  --light-red: hsl(0, 100%, 67%);
+  --orangey-yellow: hsl(39, 100%, 56%);
+  --green-teal: hsl(166, 100%, 37%);
+  --cobalt-blue: hsl(234, 85%, 45%);
+  /* translucent */
+  --light-red-bg: hsl(0, 100%, 67%, 0.1);
+  --orangey-yellow-bg: hsl(39, 100%, 56%, 0.1);
+  --green-teal-bg: hsl(166, 100%, 37%, 0.1);
+  --cobalt-blue-bg: hsl(234, 85%, 45%, 0.1);
+
+  /* GRADIENT */
+  --light-slate-blue: hsl(252, 100%, 67%); /* background */
+  --light-royal-blue: hsl(241, 81%, 54%); /* background */
+  --violet-blue: hsla(256, 72%, 46%, 1); /* circle */
+  --persian-blue: hsla(241, 72%, 46%, 0); /* circle */
+
+  --bg-gradient: linear-gradient(
+    to bottom,
+    var(--light-slate-blue),
+    var(--light-royal-blue)
+  );
+  --circle-gradient: linear-gradient(
+    to bottom,
+    var(--violet-blue),
+    var(--persian-blue)
+  );
+
+  /* NEUTRAL  */
+  --white: hsl(0, 0%, 100%);
+  --pale-blue: hsl(221, 100%, 96%);
+  --light-lavender: hsl(241, 100%, 89%);
+  --dark-gray-blue: hsl(224, 30%, 27%);
+
+  /* FONTS */
+  --hanken-grotesk: "Hanken Grotesk", sans-serif; /* weights: 500 700 800  */
+}
+
+p {
+  font-size: 18px;
+  text-align: center;
+}
+
+body {
+  background-color: var(--white);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--hanken-grotesk);
+}
+
+.container {
+  max-width: 734px;
+  display: flex;
+  box-shadow: 20px -13px 60px rgba(0, 0, 0, 0.308);
+  border-radius: 30px;
+  /* flex-wrap: wrap; */
+}
+
+.result {
+  /* max-width: 367px; */
+  width: 100%;
+  background-image: var(--bg-gradient);
+  border-radius: 30px;
+  text-align: center;
+  padding: 3.625rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--light-lavender);
+}
+.result > .title {
+  font-size: 18px;
+  margin-bottom: 1.67rem;
+}
+.result > .circle {
+  height: 12.5rem;
+  width: 12.5rem;
+  background-image: var(--circle-gradient);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 3.2rem;
+}
+
+.circle > h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--pale-blue);
+}
+
+.result > h2 {
+  margin-bottom: 1.75rem;
+  color: var(--pale-blue);
+}
+
+.summary {
+  /* width: 367px; */
+  width: 100%;
+  padding: 2.875rem 2.375rem;
+  color: var(--dark-gray-blue);
+  font-weight: 700;
+}
+
+.summary > .stats {
+  display: flex;
+  flex-direction: column;
+  padding: 2.125rem 0;
+}
+
+.stats > .category {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 1.18rem;
+  margin-bottom: 0.9rem;
+  align-items: center;
+  border-radius: 0.6rem;
+}
+
+.stats > .category > img {
+  margin-right: 0.5rem;
+  height: 18px;
+}
+
+.category.Reaction {
+  color: var(--light-red);
+  background-color: var(--light-red-bg);
+}
+.category.Memory {
+  color: var(--orangey-yellow);
+  background-color: var(--orangey-yellow-bg);
+}
+.category.Verbal {
+  color: var(--green-teal);
+  background-color: var(--green-teal-bg);
+}
+
+.category.Visual {
+  color: var(--cobalt-blue);
+  background-color: var(--cobalt-blue-bg);
+}
+
+.score {
+  margin-left: auto;
+  color: var(--dark-gray-blue);
+}
+.score > span {
+  color: rgba(48, 59, 90, 0.414);
+}
+
+.button {
+  width: 100%;
+  padding: 1.5rem 0;
+  border-radius: 2rem;
+  font-size: 16px;
+  background-color: var(--dark-gray-blue);
+  color: var(--pale-blue);
+  font-weight: 700;
+  outline: none;
+  border: none;
+}
+
+.button:hover,
+.button:focus {
+  background-image: var(--bg-gradient);
+  cursor: pointer;
+}
+
+/* 
+DESIGN WIDGTH
+- Mobile: 375px
+- Desktop: 1440px 
+
+*/
+
+@media (max-width: 600px) {
+  body {
+    align-items: flex-start;
+  }
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+  }
+
+  .result {
+    max-width: 600px;
+    border-radius: 0 0 2.5rem 2.5rem;
+    padding: 3rem 2rem 3rem 2rem;
+  }
+
+  .result > .circle {
+    height: 145px;
+    width: 145px;
+    margin-bottom: 2rem;
+  }
+  .result > h2 {
+    margin-bottom: 1.2rem;
+  }
+
+  .summary > .stats {
+    padding: 20px 0;
+  }
+}
